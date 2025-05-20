@@ -28,13 +28,18 @@ shadow_enabled = true
 
 [node name="Floor" parent="." instance=ExtResource("1_ig7tw")]
 
-[node name="NavNPC" parent="." instance=ExtResource("2_0xm2m")]
+[node name="NavNPC" parent="." node_paths=PackedStringArray("nav_target") instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976458, 0)
-visible = false
+nav_target = NodePath("../MouseFollower")
+
+[node name="NavNPC2" parent="." node_paths=PackedStringArray("nav_target") instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.243118, 0.976458, -2.51613)
+nav_target = NodePath("../MouseFollower")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 0)
 size = 14.553
 
 [node name="MouseFollower" parent="." node_paths=PackedStringArray("ground_plane") instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 ground_plane = NodePath("../Floor")
