@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3j6se455nvot"]
+[gd_scene load_steps=7 format=3 uid="uid://c3j6se455nvot"]
 
 [ext_resource type="PackedScene" uid="uid://dtl57v7tnj3yx" path="res://floor.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b47vlv77uy4t1" path="res://nav_npc.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bw6icr7qb1qcw" path="res://mouse_follower.tscn" id="3_h2yge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -29,6 +30,11 @@ shadow_enabled = true
 
 [node name="NavNPC" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976458, 0)
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 0)
+size = 14.553
+
+[node name="MouseFollower" parent="." node_paths=PackedStringArray("ground_plane") instance=ExtResource("3_h2yge")]
+ground_plane = NodePath("../Floor")

@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtl57v7tnj3yx"]
+[gd_scene load_steps=3 format=3 uid="uid://dtl57v7tnj3yx"]
+
+[ext_resource type="Script" uid="uid://c5mr0m115wg" path="res://tester.gd" id="1_oj3tl"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ryoud"]
 vertices = PackedVector3Array(4, 0.5, -3, 4, 0.5, -2.25, 4.5, 0.5, -2.25, 4.5, 0.5, -4.5, -4.5, 0.5, -0.25, -3, 0.5, -0.25, -3.75, 0.5, -1, 1.5, 0.5, -3.75, 3.25, 0.5, -3.75, -4.5, 0.5, -4.5, -2, 0.5, -4, -3.75, 0.5, -2, -0.25, 0.5, -3.25, -0.5, 0.5, -1.75, 1, 0.5, -1.75, 1, 0.5, -3.25, -2, 1.5, -2.5, -2, 1.5, -2, -1.25, 1.5, -2.5, 3.5, 0.5, -0.75, 4.5, 0.5, 1.25, 4.5, 0.5, 4.5, 4.5, 0.5, 3.5, 0.5, 0.5, 3.5, -4.5, 0.5, 4.5, 1.5, 0.5, -0.75, -1.75, 0.5, -0.25, 0.25, 0.5, 1.5)
@@ -7,6 +9,7 @@ geometry_parsed_geometry_type = 0
 
 [node name="Floor" type="NavigationRegion3D"]
 navigation_mesh = SubResource("NavigationMesh_ryoud")
+script = ExtResource("1_oj3tl")
 
 [node name="FloorMesh" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
