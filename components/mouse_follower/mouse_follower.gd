@@ -1,7 +1,5 @@
 class_name MouseFollower extends CSGSphere3D
 
-@export var ground_plane: NavSurface
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion or event is InputEventMouseButton:
 		var space_state = get_world_3d().direct_space_state
@@ -10,8 +8,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var from = camera.project_ray_origin(mouse_pos)
 		var to = from + camera.project_ray_normal(mouse_pos) * 1000
 		var query = PhysicsRayQueryParameters3D.create(from, to)
-		query.collide_with_areas = true
-
+		#TODO: setup a collision mask so that this can only collide with the floor
 		var result = space_state.intersect_ray(query)
 		if result.size() != 0:
 			position.x = result.position.x
