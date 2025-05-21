@@ -12,5 +12,3 @@ func _unhandled_input(event: InputEvent) -> void:
 		var result = space_state.intersect_ray(query)
 		if result.size() != 0:
 			position.x = result.position.x
-			position.z = result.position.z
-			position.y = 0

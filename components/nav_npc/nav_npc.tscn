@@ -25,6 +25,7 @@ path_desired_distance = 0.75
 target_desired_distance = 1.5
 avoidance_enabled = true
 height = 2.0
+radius = 0.6
 max_speed = 100.0
 use_3d_avoidance = true
 debug_enabled = true

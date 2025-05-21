@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbkm8ekoqh455"]
+
+[ext_resource type="Script" uid="uid://c6p2uoo7mmkam" path="res://components/rig/rig.gd" id="1_b3wfc"]
+
+[node name="Rig" type="Node3D"]
+script = ExtResource("1_b3wfc")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
+target_position = Vector3(0, 0, -1)
+debug_shape_thickness = 5

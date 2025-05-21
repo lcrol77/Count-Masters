@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0gtulmwy3jq3"]
+
+[ext_resource type="PackedScene" uid="uid://uv8ca76e61ju" path="res://components/nav_surfaces/level_base.tscn" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://bbkm8ekoqh455" path="res://components/rig/rig.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://bw6icr7qb1qcw" path="res://components/mouse_follower/mouse_follower.tscn" id="3_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://b47vlv77uy4t1" path="res://components/nav_npc/nav_npc.tscn" id="3_w8frs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w7c3h"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_w7c3h")
+
+[sub_resource type="Environment" id="Environment_w8frs"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Level" type="Node3D"]
+
+[node name="LevelBase" parent="." instance=ExtResource("1_2q6dc")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w8frs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 11.7189, 0)
+shadow_enabled = true
+
+[node name="Rig" parent="." instance=ExtResource("2_w7c3h")]
+
+[node name="MouseFollower" parent="Rig" instance=ExtResource("3_mx8sn")]
+
+[node name="Camera3D" type="Camera3D" parent="Rig"]
+transform = Transform3D(1, 0, 0, 0, 0.625365, 0.780332, 0, -0.780332, 0.625365, 0, 6.54217, 8.72368)
+
+[node name="NavNPC" parent="." node_paths=PackedStringArray("nav_target") instance=ExtResource("3_w8frs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.755602, 1, 4.8831)
+nav_target = NodePath("../Rig/MouseFollower")
+
+[node name="NavNPC2" parent="." node_paths=PackedStringArray("nav_target") instance=ExtResource("3_w8frs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.665546, 1, 6.40552)
+nav_target = NodePath("../Rig/MouseFollower")
+
+[node name="NavNPC3" parent="." node_paths=PackedStringArray("nav_target") instance=ExtResource("3_w8frs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.798154, 1, 6.17215)
+nav_target = NodePath("../Rig/MouseFollower")
+
+[node name="NavNPC4" parent="." node_paths=PackedStringArray("nav_target") instance=ExtResource("3_w8frs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.924623, 1, 7.81685)
+nav_target = NodePath("../Rig/MouseFollower")

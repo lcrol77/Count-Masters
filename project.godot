@@ -11,13 +11,20 @@ config_version=5
 [application]
 
 config/name="Count Masters Clone"
-run/main_scene="uid://c3j6se455nvot"
+run/main_scene="uid://c0gtulmwy3jq3"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://cnipycttfc2bg"
 
 [dotnet]
 
 project/assembly_name="Count Masters Clone"
+
+[file_customization]
+
+folder_colors={
+"res://components/": "green",
+"res://scenes/": "pink"
+}
 
 [global_group]
 
